@@ -14,7 +14,7 @@
   <div id="postsDiv">
     <h2>{{ post.title }}</h2><br>
     <strong>{{ post.author }} | Last Updated: {{ post.updated|date:"D, d M, y" }}</strong>
-    <p>{{ post.body|truncatewords:30 }}</p>
+    <p>{{ post.body|truncatewords:30|linebreaksbr }}</p>
   </div>
 </a>
 <br />
