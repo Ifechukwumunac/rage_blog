@@ -14,7 +14,7 @@
     <small>Last updated: {{ post.updated|date:"D, d M, y" }}</small>
   </p>
   <!-- urlize converts any links to become clickable -->
-  <section>{{ post.body|urlize|linebreaksbr }}</section>
+  <section style="overflow-wrap: break-word;">{{ post.body|urlize|linebreaksbr }}</section>
 
   
   <div id="shareLinks">
