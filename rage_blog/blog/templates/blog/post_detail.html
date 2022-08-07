@@ -1,0 +1,90 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<link rel="stylesheet" href="{% static 'blog/detail.css' %}" />
+
+<div class="container">
+  <p id="quickAccessLinks">
+    <a href="{% url 'blog:all' %}">Rage blog</a> / {{ post.title }}
+  </p>
+
+  <h1 id="title">{{ post.title }}</h1>
+
+  <p id="extraInfo">
+    By: <strong>{{ post.author }}</strong> |
+    <small>Last updated: {{ post.updated|date:"D, d M, y" }}</small>
+  </p>
+  <!-- urlize converts any links to become clickable -->
+  <section>{{ post.body|urlize|linebreaksbr }}</section>
+
+  
+  <div id="shareLinks">
+    <strong style='font-size: medium;align-self: center;margin-right: 20px;'> share it </strong>
+    <!-- courtesy django-social-share check at https://github.com/fcurella/django-social-share -->
+  {% load social_share %}
+  {% post_to_facebook object_or_url '<i class="fab fa-facebook"></i>' 'share_facebook'  %}
+  {% post_to_whatsapp  object_or_url '<i class="fa-brands fa-whatsapp-square"></i>' 'share_whatsapp' %}
+  {% post_to_telegram "check out '{{ post.title }}' on Rage -- promise it'll be fun😋😋😋" object_or_url '<i class="fa-brands fa-telegram"></i>' 'share_telegram' %}
+  {% post_to_twitter "check out '{{ post.title }}' on Rage -- promise it'll be fun😋😋😋"  object_or_url '<i class="fa-brands fa-twitter-square"></i>' 'share_twitter' %}
+  
+  </div>
+
+</div>
+
+
+
+
+
+<div class="commentDiv">
+  <h3>Say something...</h3>
+  <form method="post" action="" id="form1">
+    <div id="commentForm">
+      {% csrf_token %}
+      <div class="commentFormDiv">
+        {% for field in comment_form %} 
+        {{ field }} 
+        {% endfor %}
+      </div>
+      <div class="commentFormDivSubmitButton">
+        <button type="submit" class='submitbtn' aria-label="send"><i class="fa-solid fa-paper-plane"></i></button> <br />
+      </div>
+    </div>
+    <small>Its anonymous by default - even rage can't trace you 😉</small>
+  </form>
+    <div id="commentTitleDiv">
+        <h3>{{ comments.count }} comment{{ comments.count|pluralize }}</h3> 
+    </div>
+  
+{% if not post.comments.all %}
+    <p style='text-align: center;margin: 20px;'>
+      <span style="color: slateblue;"> Be the first to talk </span>
+    </p> 
+{% else %}
+    {% for comment in post.get_comments %} 
+        {% include 'comment.html' with comment=comment %}
+    {% endfor %} 
+{% endif %}
+
+
+{% if post.comments.all %}
+<!-- reload and take you to the last comment id you left -->
+<button class='reloadbtn' 
+onclick="reloadPage()"
+aria-label="more comments">
+  check for <strong> New comments🔎</strong>
+</button>
+{% endif %}
+
+<p id="related">
+  {% for post in related_posts %}
+    {% if forloop.counter < 6 %}
+  <a href="{{ post.get_absolute_url }}" id="relatedPosts">{{ post.title }}</a>
+  {% if not forloop.last %}/{% endif %}
+    {% endif %}
+  {% endfor %}
+</p>
+
+<button id="goDown" aria-label="go to bottom" onclick="downFunction()"><i class="fa-solid fa-angles-down"></i></button>
+<a href="#form1" id="goToComment" aria-label='go to comment'><i class="fa-solid fa-comment-dots"></i></a>
+</div>
+
+{% endblock %}

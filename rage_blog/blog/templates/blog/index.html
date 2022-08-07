@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% load static %} {% block content %} 
+<link rel="stylesheet" href={% static 'blog/index.css' %}>
+
+<div id="welcomeContainer">
+  <header>Welcome, enraged...</header>
+  <p>
+    The blog for those who want change, love to learn, and will not be held down
+    by lies ... the curious.
+  </p>
+</div>
+
+{% for post in post_list %}
+<a href="{{ post.get_absolute_url }}" id="posts">
+  <div id="postsDiv">
+    <h2>{{ post.title }}</h2><br>
+    <strong>{{ post.author }} | Last Updated: {{ post.updated|date:"D, d M, y" }}</strong>
+    <p>{{ post.body|truncatewords:30 }}</p>
+  </div>
+</a>
+<br />
+{% endfor %}
+
+<!-- pagination -->
+{% if page_obj.has_other_pages %}
+<div class="pagination">
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}" class="pagesLink">&laquo;previous</a>
+  {% endif %}
+
+  <!-- i formed a new tag for the purpose of having a more dynamic get_elide_pages -->
+  {% load paginator_tags %}
+  <!-- note that i can add other arguements apart from number to overwrite on_each_side or/and on_ends in views -->
+  {% get_proper_elided_page_range paginator page_obj.number as page_range %} 
+  {% for i in page_range %}
+    {% if page_obj.number == i %}
+      <span class="currentPage">{{ i }}</span>
+    {% else %}
+      <a href="?page={{ i }}" class='pagesLink'>{{ i }}</a>
+    {% endif %}
+  {% endfor %}
+  
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" class="pagesLink">next&raquo;</a>
+  {% endif %}
+</div>
+{% endif %} {% endblock content %}

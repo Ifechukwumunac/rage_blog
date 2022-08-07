@@ -1,0 +1,232 @@
+.container{
+    background-color: #fff;
+    margin: 15px;
+    margin-bottom: 20px;
+}
+
+nav{
+    margin-bottom: 20px;
+}
+
+#title{
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#quickAccessLinks{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#quickAccessLinks a{
+    text-decoration-line: none;
+    color: blueviolet;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#quickAccessLinks a:visited, #quickAccessLinks a:focus{
+    color: blueviolet;
+}
+
+#quickAccessLinks a:hover{
+    text-decoration-line: underline;
+}
+
+#extraInfo{
+    margin-bottom: 10px;
+}
+
+#extraInfo strong{
+    color: blueviolet;
+}
+section{
+    line-height: 1.7em;
+}
+
+/* comments */
+
+.commentDiv{
+    background-color: #fff;
+    border: none;
+    margin: 15px;
+}
+#commentTitleDiv{
+    position: relative;
+}
+
+#commentForm{
+    display: flex;
+    flex-direction: row;
+}
+
+/* note that this also makes the text area and input box full width */
+.commentFormDiv{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+.commentFormDivSubmitButton{
+    width: 30%;
+}
+#commentForm  textarea{
+        border-radius: 5px;
+        margin: 5px;
+        padding: 5px;
+        outline: none;
+        font-family: monospace;
+}
+#form1 small{
+    color: rgb(134, 133, 133);
+    font-size: x-small;
+}
+.submitbtn{
+    padding: 10px;
+    background-color: rgb(62, 209, 62);
+    color: white;
+    outline: none;
+    border: none;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+.cancelbtn{
+    padding: 10px;
+    outline: none;
+    color: white;
+    border: none;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(209, 81, 81);
+    -webkit-tap-highlight-color: transparent;
+}
+
+#commentForm .submitbtn:hover{
+    background-color: rgb(11, 139, 11);
+}
+#commentForm .cancelbtn:hover{
+    background-color: rgb(255, 0, 0)
+}
+#replyBtn{
+    padding: 10px;
+    outline: none;
+    color: white;
+    border: none;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgba(171, 88, 248,0.7);
+    -webkit-tap-highlight-color: transparent;
+}
+#replyBtn:hover{
+    background-color: rgb(130, 65, 192);
+}
+.comments, .replies{
+    border: 1px solid rgb(176, 154, 197);
+    border-radius: 10px;
+    background-color: rgb(209, 203, 214);
+    margin-top: 3px;
+    padding: 5px;
+    overflow-wrap: break-word;
+}
+.replies{
+    background-color: rgb(238, 235, 240);
+    margin-left: 20px;
+
+}
+
+.reloadbtn{
+    margin-top: 10px;
+    padding: 10px;
+    outline: none;
+    color: white;
+    border: none;
+    margin: 5px;
+    margin-left: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(171, 88, 248);
+    -webkit-tap-highlight-color: transparent;
+}
+
+#goToComment {
+    text-decoration-line: none;
+    font-size: 12px;
+    background-color: rgba(171, 88, 248,0.8);
+    border-radius: 50%;
+    padding: 12px;
+    position: fixed;
+    bottom: 115px;
+    right: 15px;
+    -webkit-tap-highlight-color: transparent;
+    display: none;
+    color: #fff;
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+  .styleLinks a{
+    text-decoration-line: none;
+    color: slateblue;
+  }
+  .styleLinks a:visited{
+    color: slateblue;
+  }
+  #goDown {
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    background-color: rgba(171, 88, 248,0.8);
+    border-radius: 50%;
+    padding: 10px;
+    padding-right: 13px;
+    padding-left: 13px;
+    position: fixed;
+    bottom: 170px;
+    right: 15px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #related{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+}
+#related a{
+    text-decoration-line: none;
+    color: blueviolet;
+}
+#related a:focus{
+    color: slateblue;
+    text-decoration-line: underline;
+}
+#shareLinks{
+    display: flex;
+    font-size: 30px;
+    margin-top: 30px;
+}
+#shareLinks a{
+    margin-right: 20px;
+}
+#shareLinks .share_facebook{
+    color: rgb(1, 101, 225);
+    -webkit-tap-highlight-color: transparent;
+}
+#shareLinks .share_whatsapp{
+    color: rgb(40, 209, 70);
+    -webkit-tap-highlight-color: transparent;
+}
+#shareLinks .share_telegram{
+    color: rgb(42, 171, 238);
+    -webkit-tap-highlight-color: transparent;
+}
+#shareLinks .share_twitter{
+    color: rgb(29, 155, 240);
+    -webkit-tap-highlight-color: transparent;
+}
+  @media screen and (min-width: 1000px) {
+    #goToComment, #goDown{
+        right: 17%;
+    }
+  }

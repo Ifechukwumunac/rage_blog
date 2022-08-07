@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rage</title>
+    {% load static %}
+    <!-- favicon coutersy favicon.io -->
+    <link rel="apple-touch-icon" sizes="180x180" href={% static "blog/apple-touch-icon.png" %}>
+    <link rel="icon" type="image/png" sizes="32x32" href={% static "blog/favicon-32x32.png" %}>
+    <link rel="icon" type="image/png" sizes="16x16" href={% static "blog/favicon-16x16.png" %}>
+    <link rel="manifest" href={% static "blog/site.webmanifest" %}>
+    <!-- for icons fontawesome -->
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html{
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: monospace;
+        background-size: 20px 20px;
+        background-image: radial-gradient(
+          circle,
+          rgb(209, 208, 208) 1px,
+          #fff 1px
+        );
+        position: relative;
+        min-height: 100vh;
+      }
+      footer {
+        color: blueviolet;
+        outline: none;
+        border: none;
+        border-top: 1px solid blueviolet;
+        background-color: #fff;
+        text-align: center;
+        padding: 5px;
+        position: absolute;
+        bottom: 0px;
+        width: 97%;
+        margin: auto;
+      }
+      nav {
+        font-weight: bold;
+        text-decoration: none;
+        color: blueviolet;
+        border: none;
+        border-bottom: 1px solid blueviolet;
+        font-size: 55px;
+        padding-left: 5px;
+        position: relative;
+      }
+      #feedback {
+        text-decoration-line: none;
+        font-size: 16px;
+        position: absolute;
+        bottom: 3px;
+        right: 5px;
+        font-weight: thin;
+      }
+      nav a {
+        text-decoration-line: underline;
+        /* removes blue highlighting on tap */
+        -webkit-tap-highlight-color: transparent;
+      }
+      nav a:focus {
+        color: slateblue;
+      }
+      nav a:visited {
+        color: slateblue;
+      }
+      .excessSpace {
+        height: 50px;
+      }
+      #goUp {
+        outline: none;
+        border: none;
+        color: #fff;
+        font-size: 12px;
+        background-color: rgba(171, 88, 248,0.8);
+        border-radius: 50%;
+        padding: 10px;
+        padding-right: 13px;
+        padding-left: 13px;
+        position: fixed;
+        bottom: 60px;
+        right: 15px;
+        -webkit-tap-highlight-color: transparent;
+        display: none;
+      }
+
+      @media screen and (min-width: 1000px) {
+        body {
+          padding-left: 20%;
+          padding-right: 20%;
+        }
+        footer {
+          width: 60%;
+        }
+        #goUp{
+            right: 17%;
+        }
+      }
+    </style>
+    <!-- nav bar -->
+    <!-- it goes to the latest post page  -->
+    <nav id="topHead">
+      <a href="{% url 'blog:all' %}">Rage</a>
+      <a href="{% url 'blog:post_detail' pk=3 post='feedback' %}" id="feedback"
+        >Feedback</a
+      >
+    </nav>
+
+    {% block content %} {% endblock content %}
+
+    <button id="goUp" aria-label='go to top' onclick='topFunction()'><i class="fa-solid fa-angles-up"></i></button>
+    <!-- excess space so that the footer doesnt cover content since the pages are dynamic -->
+    <div class="excessSpace"></div>
+    <footer id="footer">
+      <strong>Zero Moderation -- free speech</strong> <br />
+      made with 💜 by yours sincerely... vintage_lord.
+    </footer>
+    <script src="{% static 'blog/javascript.js'%}"></script>
+  </body>
+</html>

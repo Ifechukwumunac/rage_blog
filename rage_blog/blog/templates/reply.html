@@ -1,0 +1,12 @@
+<div id="{{ comment.id }}" class="replies">
+    <div>
+      <strong>{{ comment.name }}</strong>
+      {% if comment.parent.name %} to <strong>{{ comment.parent.name }}</strong>{% endif %}
+      <small>On {{ comment.created.date }}</small>
+    </div><br>
+    <div>
+      <!-- urlize converts any links to become clickable -->
+      <span class='styleLinks'><p>{{comment.body|urlize|linebreaksbr}}</p></span>
+    </div>
+  </div>
+  
