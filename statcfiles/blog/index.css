@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#welcomeContainer{
+    text-align:center;
+    border: 1px solid blueviolet;
+    padding: 0;
+    margin: 5px;
+    margin-bottom: 25px;
+    background-color: #fff;
+}
+#welcomeContainer header{
+    font-weight: bolder;
+    background-color: blueviolet;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+#postsDiv{
+    border: 1px solid slateblue;
+    padding: 5px;
+    /* they will not still be jampacked cos of the link that the div is wrapped with */
+    margin: 5px;
+    margin-bottom: 0px;
+    background-color: #fff;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 10px;
+}
+#postsDiv:hover{
+    color: darkorchid;
+    background-color: #fcfafa;
+}
+#posts{
+    text-decoration-line: none;
+    -webkit-tap-highlight-color: transparent;
+    margin-bottom: -3px;
+}
+#posts:visited{
+    color: rgb(69, 110, 150);
+}
+
+.pagination{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bolder;
+    color: blueviolet;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+.pagination a{
+    text-decoration-line: none;
+    color: blueviolet;
+    -webkit-tap-highlight-color: transparent;
+}
+.pagination a:hover{
+    color: darkorchid;
+}
+.pagination .currentPage{
+    color: blue;
+    font-size: 25px;
+}
+.pagination a:visited{
+    color: blueviolet;
+}
+
