@@ -11,7 +11,7 @@
 
   <p id="extraInfo">
     By: <strong>{{ post.author }}</strong> |
-    <small>Last updated: {{ post.updated|date:"D, d M, y" }}</small>
+    <small style="font-weight: 600;">Last updated: {{ post.updated|date:"D, d M, y" }}</small>
   </p>
   <!-- urlize converts any links to become clickable -->
   <section>{{ post.body|urlize|linebreaksbr }}</section>
