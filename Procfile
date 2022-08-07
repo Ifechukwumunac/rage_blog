@@ -1,1 +1,1 @@
-web gunicorn black_blog_test.wsgi
+web: gunicorn black_blog_test.wsgi
